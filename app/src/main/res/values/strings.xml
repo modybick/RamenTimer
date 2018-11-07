@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">RamenTimer</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="min_button1_text">Button1</string>
+    <string name="min_button2_text">Button2</string>
+    <string name="min_button3_text">Button3</string>
+    <string name="hard_button1_text">Button1</string>
+    <string name="hard_button2_text">Button2</string>
+    <string name="hard_button3_text">Button3</string>
+
+    <!-- TODO 設定画面用のstring追加 -->
 </resources>
