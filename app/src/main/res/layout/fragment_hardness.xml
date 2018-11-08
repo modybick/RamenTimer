@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="onHardButtonClicked"
-        android:text="@string/hard_button1_text"
         android:textSize="50sp" />
 
     <Button
@@ -21,7 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="onHardButtonClicked"
-        android:text="@string/hard_button2_text"
         android:textSize="50sp" />
 
     <Button
@@ -30,6 +28,5 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="onHardButtonClicked"
-        android:text="@string/hard_button3_text"
         android:textSize="50sp" />
 </LinearLayout>

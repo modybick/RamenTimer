@@ -1,6 +1,7 @@
 package com.modybick.ramentimer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.provider.AlarmClock;
 import android.support.annotation.RequiresApi;
@@ -19,22 +20,28 @@ public class MainActivity extends AppCompatActivity {
     /* TODO 設定ファイルの読み込み実装 */
 
     private int minutes;
-    private double hardness;
+    private float hardness;
 
-    private int min_button1_value = 1;
-    private int min_button2_value = 3;
-    private int min_button3_value = 5;
+    private int min_button1_value;
+    private int min_button2_value;
+    private int min_button3_value;
 
-    private double hard_button1_value = 0.7;
-    private double hard_button2_value = 1;
-    private double hard_button3_value = 1.1;
+    private String hard_button1_text;
+    private String hard_button2_text;
+    private String hard_button3_text;
+    private float hard_button1_value;
+    private float hard_button2_value;
+    private float hard_button3_value;
 
-    private String timerMessage = "hoge";
+    private String timerMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //プリファレンスの読み込み
+        readPreference();
 
         //時間選択フラグメントを作成・表示
         MinuteFragment minuteFragment = new MinuteFragment();
@@ -54,11 +61,26 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.preference_menu:
                 //設定アクティビティを表示
-                Intent i = new Intent(getApplicationContext(),ConfigActivity.class);
+                Intent i = new Intent(getApplicationContext(), ConfigActivity.class);
                 startActivity(i);
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    //プリファレンスの読み込みを行う
+    private void readPreference() {
+        SharedPreferences pref = getPreferences(MODE_PRIVATE);
+        min_button1_value = pref.getInt("pref_min_button1_value", 3);
+        min_button2_value = pref.getInt("pref_min_button2_value", 4);
+        min_button3_value = pref.getInt("pref_min_button3_value", 5);
+        hard_button1_text = pref.getString("pref_hard_button1_text", "かため");
+        hard_button2_text = pref.getString("pref_hard_button2_text", "ふつう");
+        hard_button3_text = pref.getString("pref_hard_button3_text", "やわらかめ");
+        hard_button1_value = pref.getFloat("pref_hard_button1_value", 0.8f);
+        hard_button2_value = pref.getFloat("pref_hard_button2_value", 1.0f);
+        hard_button3_value = pref.getFloat("pref_hard_button3_value", 1.2f);
+        timerMessage = pref.getString("pref_timer_message", "ラーメンが完成しました");
     }
 
     //分選択ボタンが押されたとき
@@ -67,13 +89,15 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.min_button1:
                 minutes = min_button1_value;
+                break;
             case R.id.min_button2:
                 minutes = min_button2_value;
+                break;
             case R.id.min_button3:
                 minutes = min_button3_value;
-            default:
-                gotoHardnessFragment();
+                break;
         }
+        gotoHardnessFragment();
     }
 
     //かたさ選択ボタンが押されたとき
@@ -83,17 +107,19 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.hard_button1:
                 hardness = hard_button1_value;
+                break;
             case R.id.hard_button2:
                 hardness = hard_button2_value;
+                break;
             case R.id.hard_button3:
                 hardness = hard_button3_value;
-            default:
-                startTimer(timerMessage, calcSeconds());
+                break;
         }
+        startTimer(timerMessage, calcSeconds());
     }
 
     //かたさ選択フラグメントに遷移する
-    public void gotoHardnessFragment(){
+    private void gotoHardnessFragment() {
         HardnessFragment hardnessFragment = new HardnessFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.main_layout, hardnessFragment);
@@ -102,22 +128,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //タイマーに設定する時間（秒）を計算
-    public int calcSeconds(){
+    private int calcSeconds() {
         int sec;
-        sec = (int) round(this.minutes * 60 * this.hardness);
+        sec = round(this.minutes * 60 * this.hardness);
         return sec;
     }
 
     // タイマーをセットし、スタートする
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private void startTimer(String message, int sec){
+    private void startTimer(String message, int sec) {
         Intent intent = new Intent(AlarmClock.ACTION_SET_TIMER)
                 .putExtra(AlarmClock.EXTRA_MESSAGE, message)
                 .putExtra(AlarmClock.EXTRA_LENGTH, sec)
                 .putExtra(AlarmClock.EXTRA_SKIP_UI, false);
-        if (intent.resolveActivity(getPackageManager()) != null){
+        if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+    }
+
+    public int getMin_button1_value(){
+        return min_button1_value;
+    }
+    public int getMin_button2_value(){
+        return min_button2_value;
+    }
+    public int getMin_button3_value(){
+        return min_button3_value;
     }
 
 }

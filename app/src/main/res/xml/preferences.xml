@@ -1,17 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/pref_title">
 
     <!-- TODO 設定画面レイアウト作成 -->
+    <PreferenceScreen android:title="@string/pref_min_title">
+        <PreferenceCategory android:title="@string/pref_min_title">
+            <EditTextPreference
+                android:defaultValue="3"
+                android:key="pref_min_button1_value"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_min_button1_value" />
+            <EditTextPreference
+                android:defaultValue="4"
+                android:key="pref_min_button2_value"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_min_button2_value" />
+            <EditTextPreference
+                android:defaultValue="5"
+                android:key="@string/pref_min_button3_value"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_min_button3_value" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+
+    <PreferenceScreen android:title="@string/pref_hard_title">
+        <PreferenceCategory android:title="@string/pref_hard_title">
+
+
+            <EditTextPreference
+                android:defaultValue="かため"
+                android:key="pref_hard_button1_text"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_hard_button1_text" />
+            <EditTextPreference
+                android:defaultValue="ふつう"
+                android:key="pref_hard_button2_text"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_hard_button2_text" />
+            <EditTextPreference
+                android:defaultValue="やわらかめ"
+                android:key="pref_hard_button3_text"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_hard_button3_text" />
+            <EditTextPreference
+                android:defaultValue="0.8"
+                android:key="pref_hard_button1_value"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_hard_button1_value" />
+            <EditTextPreference
+                android:defaultValue="1.0"
+                android:key="pref_hard_button2_value"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_hard_button2_value" />
+            <EditTextPreference
+                android:defaultValue="1.2"
+                android:key="pref_hard_button3_value"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:title="@string/pref_hard_button3_value" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+
     <EditTextPreference
-        android:defaultValue="Default value"
-        android:key="edit_text_preference_1"
+        android:defaultValue="ラーメンが完成しました"
+        android:key="pref_timer_message"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:title="Edit text preference" />
-    <EditTextPreference
-        android:defaultValue="Default value"
-        android:key="edit_text_preference_2"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="Edit text preference" />
+        android:title="@string/pref_timer_message" />
+
+    <PreferenceScreen
+        android:key="@string/pref_initialize"
+        android:title="@string/pref_initialize" />
+
 </PreferenceScreen>
