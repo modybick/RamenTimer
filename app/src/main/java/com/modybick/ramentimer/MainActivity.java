@@ -17,8 +17,6 @@ import static java.lang.Math.round;
 
 public class MainActivity extends AppCompatActivity {
 
-    /* TODO 設定ファイルの読み込み実装 */
-
     private int minutes;
     private float hardness;
 
@@ -42,12 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         //プリファレンスの読み込み
         readPreference();
-
-        //時間選択フラグメントを作成・表示
-        MinuteFragment minuteFragment = new MinuteFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.main_layout, minuteFragment);
-        transaction.commit();
+        
+        //時間選択フラグメントの表示
+        gotoMinuteFragment();
     }
 
     @Override
@@ -81,6 +76,21 @@ public class MainActivity extends AppCompatActivity {
         hard_button2_value = pref.getFloat("pref_hard_button2_value", 1.0f);
         hard_button3_value = pref.getFloat("pref_hard_button3_value", 1.2f);
         timerMessage = pref.getString("pref_timer_message", "ラーメンが完成しました");
+    }
+    
+    //時間選択フラグメントの表示
+    private void gotoMinuteFragment() {
+        MinuteFragment minuteFragment = new MinuteFragment();
+        //引数としてボタンの値を渡す
+        Bundle args = new Bundle();
+        args.putInt("button1_value", min_button1_value);
+        args.putInt("button2_value", min_button2_value);
+        args.putInt("button3_value", min_button3_value);
+        minuteFragment.setArguments(arg);
+        //遷移開始
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.main_layout, minuteFragment);
+        transaction.commit();
     }
 
     //分選択ボタンが押されたとき
@@ -145,15 +155,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-    public int getMin_button1_value(){
-        return min_button1_value;
-    }
-    public int getMin_button2_value(){
-        return min_button2_value;
-    }
-    public int getMin_button3_value(){
-        return min_button3_value;
-    }
-
 }
