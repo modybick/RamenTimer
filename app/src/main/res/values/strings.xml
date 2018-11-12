@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">RamenTimer</string>
-    <!-- TODO 設定画面用のstring追加 -->
+    <!-- 一般 -->
+    <string name="unit_minute">分</string>
+    <string name="preference_name">config_file</string>
+
     <!-- 時間選択画面の設定用 -->
     <string name="pref_title">RamenTimer 設定</string>
     <string name="pref_min_title">時間選択画面の設定</string>

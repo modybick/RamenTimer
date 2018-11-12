@@ -1,18 +1,21 @@
 package com.modybick.ramentimer;
 
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 
 public class ConfigActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PreferenceManager preferenceManager = getPreferenceManager();
+        preferenceManager.setSharedPreferencesName(getString(R.string.preference_name));
+
         addPreferencesFromResource(R.xml.preferences);
-        //setContentView(R.layout.activity_config);
     }
 
-    /* TODO 設定ファイルの保存実装 */
+
+
+    /* TODO 戻るボタン押下時にアプリの再起動 */
 }
