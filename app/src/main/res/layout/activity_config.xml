@@ -4,10 +4,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ConfigActivity">
-
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.modybick.ramentimer.ConfigFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </FrameLayout>
