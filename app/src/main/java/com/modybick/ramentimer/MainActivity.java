@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import static java.lang.Math.round;
 
@@ -68,29 +67,22 @@ public class MainActivity extends AppCompatActivity {
 
     //プリファレンスの読み込みを行う
     private void readPreference() {
-        SharedPreferences pref = getPreferences(MODE_PRIVATE);
-        min_button1_value = pref.getInt("pref_min_button1_value", 3);
-        min_button2_value = pref.getInt("pref_min_button2_value", 4);
-        min_button3_value = pref.getInt("pref_min_button3_value", 5);
+        SharedPreferences pref = getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
+        min_button1_value = Integer.valueOf(pref.getString("pref_min_button1_value", "3"));
+        min_button2_value = Integer.valueOf(pref.getString("pref_min_button2_value", "4"));
+        min_button3_value = Integer.valueOf(pref.getString("pref_min_button3_value", "5"));
         hard_button1_text = pref.getString("pref_hard_button1_text", "かため");
         hard_button2_text = pref.getString("pref_hard_button2_text", "ふつう");
         hard_button3_text = pref.getString("pref_hard_button3_text", "やわらかめ");
-        hard_button1_value = pref.getFloat("pref_hard_button1_value", 0.8f);
-        hard_button2_value = pref.getFloat("pref_hard_button2_value", 1.0f);
-        hard_button3_value = pref.getFloat("pref_hard_button3_value", 1.2f);
+        hard_button1_value = Float.valueOf(pref.getString("pref_hard_button1_value", "0.8f"));
+        hard_button2_value = Float.valueOf(pref.getString("pref_hard_button2_value", "1.0f"));
+        hard_button3_value = Float.valueOf(pref.getString("pref_hard_button3_value", "1.2f"));
         timerMessage = pref.getString("pref_timer_message", "ラーメンが完成しました");
     }
-    
+
     //時間選択フラグメントの表示
     private void gotoMinuteFragment() {
         MinuteFragment minuteFragment = new MinuteFragment();
-        //引数としてボタンの値を渡す
-        Bundle args = new Bundle();
-        args.putInt("button1_value", min_button1_value);
-        args.putInt("button2_value", min_button2_value);
-        args.putInt("button3_value", min_button3_value);
-        minuteFragment.setArguments(arg);
-        //遷移開始
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.main_layout, minuteFragment);
         transaction.commit();
@@ -157,5 +149,16 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+    }
+
+    //アプリの再起動
+    private void reload() {
+        Intent intent = getIntent();
+        overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+
+        overridePendingTransition(0, 0);
+        startActivity(intent);
     }
 }
