@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private int min_button2_value;
     private int min_button3_value;
 
+    private String hard_button1_text;
+    private String hard_button2_text;
+    private String hard_button3_text;
     private float hard_button1_value;
     private float hard_button2_value;
     private float hard_button3_value;
@@ -72,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
         min_button1_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button1_value", "3")));
         min_button2_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button2_value", "4")));
         min_button3_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button3_value", "5")));
+        hard_button1_text = pref.getString("pref_hard_button1_text", "かため");
+        hard_button2_text = pref.getString("pref_hard_button2_text", "ふつう");
+        hard_button3_text = pref.getString("pref_hard_button3_text", "やわらかめ");
         hard_button1_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button1_value", "0.8f")));
         hard_button2_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button2_value", "1.0f")));
         hard_button3_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button3_value", "1.2f")));
