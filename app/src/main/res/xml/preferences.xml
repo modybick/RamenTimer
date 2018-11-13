@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/pref_title">
 
-    <!-- TODO 設定画面レイアウト作成 -->
+    <!-- TODO summaryに現在値が表示されるようにする -->
     <PreferenceScreen android:title="@string/pref_min_title">
         <PreferenceCategory android:title="@string/pref_min_title">
             <EditTextPreference
@@ -56,20 +56,21 @@
                 android:key="pref_hard_button1_value"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
+                android:inputType="numberDecimal"
                 android:title="@string/pref_hard_button1_value" />
             <EditTextPreference
                 android:defaultValue="1.0"
                 android:key="pref_hard_button2_value"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:title="@string/pref_hard_button2_value" />
             <EditTextPreference
                 android:defaultValue="1.2"
                 android:key="pref_hard_button3_value"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:title="@string/pref_hard_button3_value" />
         </PreferenceCategory>
     </PreferenceScreen>

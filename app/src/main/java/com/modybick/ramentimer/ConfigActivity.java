@@ -14,8 +14,4 @@ public class ConfigActivity extends PreferenceActivity {
 
         addPreferencesFromResource(R.xml.preferences);
     }
-
-
-
-    /* TODO 戻るボタン押下時にアプリの再起動 */
 }

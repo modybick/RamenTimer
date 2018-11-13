@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.Objects;
+
 import static java.lang.Math.round;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onResume() {
         super.onResume();
@@ -66,17 +69,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //プリファレンスの読み込みを行う
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void readPreference() {
         SharedPreferences pref = getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
-        min_button1_value = Integer.valueOf(pref.getString("pref_min_button1_value", "3"));
-        min_button2_value = Integer.valueOf(pref.getString("pref_min_button2_value", "4"));
-        min_button3_value = Integer.valueOf(pref.getString("pref_min_button3_value", "5"));
+        min_button1_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button1_value", "3")));
+        min_button2_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button2_value", "4")));
+        min_button3_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button3_value", "5")));
         hard_button1_text = pref.getString("pref_hard_button1_text", "かため");
         hard_button2_text = pref.getString("pref_hard_button2_text", "ふつう");
         hard_button3_text = pref.getString("pref_hard_button3_text", "やわらかめ");
-        hard_button1_value = Float.valueOf(pref.getString("pref_hard_button1_value", "0.8f"));
-        hard_button2_value = Float.valueOf(pref.getString("pref_hard_button2_value", "1.0f"));
-        hard_button3_value = Float.valueOf(pref.getString("pref_hard_button3_value", "1.2f"));
+        hard_button1_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button1_value", "0.8f")));
+        hard_button2_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button2_value", "1.0f")));
+        hard_button3_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button3_value", "1.2f")));
         timerMessage = pref.getString("pref_timer_message", "ラーメンが完成しました");
     }
 
@@ -149,16 +153,5 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-    }
-
-    //アプリの再起動
-    private void reload() {
-        Intent intent = getIntent();
-        overridePendingTransition(0, 0);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        finish();
-
-        overridePendingTransition(0, 0);
-        startActivity(intent);
     }
 }
