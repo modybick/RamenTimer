@@ -19,8 +19,23 @@ public class ConfigActivity extends PreferenceActivity {
     preferenceScreen.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
         @Override
         public boolean onPreferenceClick(Prefrence preference) {
-            // TODO 初期化ボタンクリック時の処理
-            
+            // 初期化確認ダイアログ表示
+            new AlertDialog.Builder(getActivity())
+                
+                // TODO テキストをresに
+                
+                .setTitle("初期化")
+                .setMessage("設定をインストール時の状態に戻します")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // OKボタンクリック時、設定初期化を実行
+                        SheredPreferences pref = getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
+                        pref.edit().clear();                        
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
             return true;
         }
     }
