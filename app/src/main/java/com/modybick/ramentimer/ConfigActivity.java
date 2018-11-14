@@ -14,4 +14,15 @@ public class ConfigActivity extends PreferenceActivity {
 
         addPreferencesFromResource(R.xml.preferences);
     }
+    
+    PreferenceScreen preferenceScreen = findPreference("pref_initialize");
+    preferenceScreen.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+        @Override
+        public boolean onPreferenceClick(Prefrence preference) {
+            // TODO 初期化ボタンクリック時の処理
+            
+            return true;
+        }
+    }
+    
 }
