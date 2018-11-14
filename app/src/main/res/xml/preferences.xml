@@ -82,7 +82,7 @@
         android:singleLine="true"
         android:title="@string/pref_timer_message" />
 
-    <PreferenceScreen
+    <Preference
         android:key="pref_initialize"
         android:title="@string/pref_initialize" />
 

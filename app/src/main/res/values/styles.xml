@@ -8,8 +8,5 @@
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
-    <style name="ConfigTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
-    </style>
 
 </resources>
