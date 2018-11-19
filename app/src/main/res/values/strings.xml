@@ -21,7 +21,8 @@
     <string name="pref_hard_button3_value">ボタン３の値（小数）</string>
 
     <string name="pref_initialize">設定を初期化</string>
-    <string name="pref_initialize_text">設定を初期化してよろしいですか。</string>
+    <string name="pref_initialize_message">設定を初期化してよろしいですか</string>
+    <string name="pref_initialized_message">設定を初期化しました</string>
 
     <string name="ok">はい</string>
     <string name="cancel">キャンセル</string>

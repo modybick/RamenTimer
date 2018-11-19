@@ -2,17 +2,13 @@ package com.modybick.ramentimer;
 
 
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -23,13 +19,13 @@ public class HardnessFragment extends Fragment {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @SuppressWarnings("ConstantConditions")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         //設定の読み込み
-        SharedPreferences pref = Objects.requireNonNull(getContext()).getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
+        SharedPreferences pref = getContext().getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
         String button1_text = pref.getString("pref_hard_button1_text", "かため");
         String button2_text = pref.getString("pref_hard_button2_text", "ふつう");
         String button3_text = pref.getString("pref_hard_button3_text", "やわらかめ");

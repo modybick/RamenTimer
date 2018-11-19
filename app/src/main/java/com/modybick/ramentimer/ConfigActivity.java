@@ -9,6 +9,7 @@ import android.preference.PreferenceActivity;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 @SuppressLint("ExportedPreferenceActivity")
 public class ConfigActivity extends PreferenceActivity {
@@ -29,12 +30,14 @@ public class ConfigActivity extends PreferenceActivity {
                 return true;
             }
         });
+
+        showSettingValue();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        showSettingValue();
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(listener);
     }
 
@@ -55,14 +58,14 @@ public class ConfigActivity extends PreferenceActivity {
     private void initialize_Alert(final Bundle savedInstanceState) {
         new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.pref_initialize))
-                .setMessage(getString(R.string.pref_initialize_text))
+                .setMessage(getString(R.string.pref_initialize_message))
                 .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // OK button pressed
                         SharedPreferences pref = getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
                         pref.edit().clear().apply();
-                        onCreate(savedInstanceState);
+                        Toast.makeText(ConfigActivity.this, getText(R.string.pref_initialized_message), Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -72,15 +75,15 @@ public class ConfigActivity extends PreferenceActivity {
     //設定値をsummaryに表示する
     private void showSettingValue() {
         //プリファレンスのインスタンスを取得
-        EditTextPreference min1ValuePref = (EditTextPreference)getPreferenceScreen().findPreference("pref_min_button1_value");
-        EditTextPreference min2ValuePref = (EditTextPreference)getPreferenceScreen().findPreference("pref_min_button2_value");
-        EditTextPreference min3ValuePref = (EditTextPreference)getPreferenceScreen().findPreference("pref_min_button3_value");
-        EditTextPreference hard1TextPref = (EditTextPreference)getPreferenceScreen().findPreference("pref_hard_button1_text");
-        EditTextPreference hard2TextPref = (EditTextPreference)getPreferenceScreen().findPreference("pref_hard_button2_text");
-        EditTextPreference hard3TextPref = (EditTextPreference)getPreferenceScreen().findPreference("pref_hard_button3_text");
-        EditTextPreference hard1ValuePref = (EditTextPreference)getPreferenceScreen().findPreference("pref_hard_button1_value");
-        EditTextPreference hard2ValuePref = (EditTextPreference)getPreferenceScreen().findPreference("pref_hard_button2_value");
-        EditTextPreference hard3ValuePref = (EditTextPreference)getPreferenceScreen().findPreference("pref_hard_button3_value");
+        EditTextPreference min1ValuePref = (EditTextPreference) getPreferenceScreen().findPreference("pref_min_button1_value");
+        EditTextPreference min2ValuePref = (EditTextPreference) getPreferenceScreen().findPreference("pref_min_button2_value");
+        EditTextPreference min3ValuePref = (EditTextPreference) getPreferenceScreen().findPreference("pref_min_button3_value");
+        EditTextPreference hard1TextPref = (EditTextPreference) getPreferenceScreen().findPreference("pref_hard_button1_text");
+        EditTextPreference hard2TextPref = (EditTextPreference) getPreferenceScreen().findPreference("pref_hard_button2_text");
+        EditTextPreference hard3TextPref = (EditTextPreference) getPreferenceScreen().findPreference("pref_hard_button3_text");
+        EditTextPreference hard1ValuePref = (EditTextPreference) getPreferenceScreen().findPreference("pref_hard_button1_value");
+        EditTextPreference hard2ValuePref = (EditTextPreference) getPreferenceScreen().findPreference("pref_hard_button2_value");
+        EditTextPreference hard3ValuePref = (EditTextPreference) getPreferenceScreen().findPreference("pref_hard_button3_value");
 
         //サマリーの設定
         min1ValuePref.setSummary(min1ValuePref.getText() + getString(R.string.unit_minute));

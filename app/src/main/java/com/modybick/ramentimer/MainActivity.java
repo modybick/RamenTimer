@@ -12,8 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.Objects;
-
 import static java.lang.Math.round;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onResume() {
         super.onResume();
@@ -64,15 +61,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //プリファレンスの読み込みを行う
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @SuppressWarnings("ConstantConditions")
     private void readPreference() {
         SharedPreferences pref = getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
-        minButton1Value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button1_value", "3")));
-        minButton2Value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button2_value", "4")));
-        minButton3Value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button3_value", "5")));
-        hardButton1Value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button1_value", "0.8f")));
-        hardButton2Value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button2_value", "1.0f")));
-        hardButton3Value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button3_value", "1.2f")));
+        minButton1Value = Integer.valueOf(pref.getString("pref_min_button1_value", "3"));
+        minButton2Value = Integer.valueOf(pref.getString("pref_min_button2_value", "4"));
+        minButton3Value = Integer.valueOf(pref.getString("pref_min_button3_value", "5"));
+        hardButton1Value = Float.valueOf(pref.getString("pref_hard_button1_value", "0.8f"));
+        hardButton2Value = Float.valueOf(pref.getString("pref_hard_button2_value", "1.0f"));
+        hardButton3Value = Float.valueOf(pref.getString("pref_hard_button3_value", "1.2f"));
     }
 
     //時間選択フラグメントの表示
