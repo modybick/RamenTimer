@@ -3,11 +3,11 @@ package com.modybick.ramentimer;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,16 +18,16 @@ import static java.lang.Math.round;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int minutes;
-    private float hardness;
+    private int selectedMinutes;
+    private float selectedHardness;
 
-    private int min_button1_value;
-    private int min_button2_value;
-    private int min_button3_value;
+    private int minButton1Value;
+    private int minButton2Value;
+    private int minButton3Value;
 
-    private float hard_button1_value;
-    private float hard_button2_value;
-    private float hard_button3_value;
+    private float hardButton1Value;
+    private float hardButton2Value;
+    private float hardButton3Value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void readPreference() {
         SharedPreferences pref = getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
-        min_button1_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button1_value", "3")));
-        min_button2_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button2_value", "4")));
-        min_button3_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button3_value", "5")));
-        hard_button1_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button1_value", "0.8f")));
-        hard_button2_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button2_value", "1.0f")));
-        hard_button3_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button3_value", "1.2f")));
+        minButton1Value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button1_value", "3")));
+        minButton2Value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button2_value", "4")));
+        minButton3Value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button3_value", "5")));
+        hardButton1Value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button1_value", "0.8f")));
+        hardButton2Value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button2_value", "1.0f")));
+        hardButton3Value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button3_value", "1.2f")));
     }
 
     //時間選択フラグメントの表示
@@ -88,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
 
         switch (v.getId()) {
             case R.id.min_button1:
-                minutes = min_button1_value;
+                selectedMinutes = minButton1Value;
                 break;
             case R.id.min_button2:
-                minutes = min_button2_value;
+                selectedMinutes = minButton2Value;
                 break;
             case R.id.min_button3:
-                minutes = min_button3_value;
+                selectedMinutes = minButton3Value;
                 break;
         }
         gotoHardnessFragment();
@@ -106,13 +106,13 @@ public class MainActivity extends AppCompatActivity {
 
         switch (v.getId()) {
             case R.id.hard_button1:
-                hardness = hard_button1_value;
+                selectedHardness = hardButton1Value;
                 break;
             case R.id.hard_button2:
-                hardness = hard_button2_value;
+                selectedHardness = hardButton2Value;
                 break;
             case R.id.hard_button3:
-                hardness = hard_button3_value;
+                selectedHardness = hardButton3Value;
                 break;
         }
         startTimer(getString(R.string.timer_message), calcSeconds());
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     //タイマーに設定する時間（秒）を計算
     private int calcSeconds() {
         int sec;
-        sec = round(this.minutes * 60 * this.hardness);
+        sec = round(this.selectedMinutes * 60 * this.selectedHardness);
         return sec;
     }
 

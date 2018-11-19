@@ -1,35 +1,37 @@
 package com.modybick.ramentimer;
 
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.Objects;
+
 import static android.content.Context.MODE_PRIVATE;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MinuteFragment extends Fragment {
 
     public MinuteFragment() {
         // Required empty public constructor
     }
 
+    @SuppressLint("SetTextI18n")
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        SharedPreferences pref = getContext().getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
-        int button1_value = Integer.valueOf(pref.getString("pref_min_button1_value", "3"));
-        int button2_value = Integer.valueOf(pref.getString("pref_min_button2_value", "4"));
-        int button3_value = Integer.valueOf(pref.getString("pref_min_button3_value", "5"));
+        SharedPreferences pref = Objects.requireNonNull(getContext()).getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
+        int button1_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button1_value", "3")));
+        int button2_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button2_value", "4")));
+        int button3_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button3_value", "5")));
 
         View v = inflater.inflate(R.layout.fragment_minute, container, false);
 

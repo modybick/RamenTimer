@@ -22,7 +22,7 @@
                 android:title="@string/pref_min_button2_value" />
             <EditTextPreference
                 android:defaultValue="5"
-                android:key="@string/pref_min_button3_value"
+                android:key="pref_min_button3_value"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
                 android:inputType="number"
