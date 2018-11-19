@@ -1,83 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/pref_title">
+    <PreferenceCategory android:title="@string/pref_title">
+        <PreferenceScreen android:title="@string/pref_min_title">
+            <PreferenceCategory android:title="@string/pref_min_title">
+                <EditTextPreference
+                    android:defaultValue="3"
+                    android:inputType="number"
+                    android:key="pref_min_button1_value"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_min_button1_value" />
+                <EditTextPreference
+                    android:defaultValue="4"
+                    android:inputType="number"
+                    android:key="pref_min_button2_value"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_min_button2_value" />
+                <EditTextPreference
+                    android:defaultValue="5"
+                    android:inputType="number"
+                    android:key="pref_min_button3_value"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_min_button3_value" />
+            </PreferenceCategory>
+        </PreferenceScreen>
 
-    <!-- TODO summaryに現在値が表示されるようにする -->
-
-    <PreferenceScreen android:title="@string/pref_min_title">
-        <PreferenceCategory android:title="@string/pref_min_title">
-            <EditTextPreference
-                android:defaultValue="3"
-                android:key="pref_min_button1_value"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:inputType="number"
-                android:title="@string/pref_min_button1_value" />
-            <EditTextPreference
-                android:defaultValue="4"
-                android:key="pref_min_button2_value"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:inputType="number"
-                android:title="@string/pref_min_button2_value" />
-            <EditTextPreference
-                android:defaultValue="5"
-                android:key="pref_min_button3_value"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:inputType="number"
-                android:title="@string/pref_min_button3_value" />
-        </PreferenceCategory>
-    </PreferenceScreen>
-
-    <PreferenceScreen android:title="@string/pref_hard_title">
-        <PreferenceCategory android:title="@string/pref_hard_title">
+        <PreferenceScreen android:title="@string/pref_hard_title">
+            <PreferenceCategory android:title="@string/pref_hard_title">
 
 
-            <EditTextPreference
-                android:defaultValue="かため"
-                android:key="pref_hard_button1_text"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:title="@string/pref_hard_button1_text" />
-            <EditTextPreference
-                android:defaultValue="ふつう"
-                android:key="pref_hard_button2_text"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:title="@string/pref_hard_button2_text" />
-            <EditTextPreference
-                android:defaultValue="やわらかめ"
-                android:key="pref_hard_button3_text"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:title="@string/pref_hard_button3_text" />
-            <EditTextPreference
-                android:defaultValue="0.8"
-                android:key="pref_hard_button1_value"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:inputType="numberDecimal"
-                android:title="@string/pref_hard_button1_value" />
-            <EditTextPreference
-                android:defaultValue="1.0"
-                android:key="pref_hard_button2_value"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:inputType="numberDecimal"
-                android:title="@string/pref_hard_button2_value" />
-            <EditTextPreference
-                android:defaultValue="1.2"
-                android:key="pref_hard_button3_value"
-                android:selectAllOnFocus="true"
-                android:singleLine="true"
-                android:inputType="numberDecimal"
-                android:title="@string/pref_hard_button3_value" />
-        </PreferenceCategory>
-    </PreferenceScreen>
+                <EditTextPreference
+                    android:defaultValue="かため"
+                    android:key="pref_hard_button1_text"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_hard_button1_text" />
+                <EditTextPreference
+                    android:defaultValue="ふつう"
+                    android:key="pref_hard_button2_text"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_hard_button2_text" />
+                <EditTextPreference
+                    android:defaultValue="やわらかめ"
+                    android:key="pref_hard_button3_text"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_hard_button3_text" />
+                <EditTextPreference
+                    android:defaultValue="0.8"
+                    android:inputType="numberDecimal"
+                    android:key="pref_hard_button1_value"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_hard_button1_value" />
+                <EditTextPreference
+                    android:defaultValue="1.0"
+                    android:inputType="numberDecimal"
+                    android:key="pref_hard_button2_value"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_hard_button2_value" />
+                <EditTextPreference
+                    android:defaultValue="1.2"
+                    android:inputType="numberDecimal"
+                    android:key="pref_hard_button3_value"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
+                    android:title="@string/pref_hard_button3_value" />
+            </PreferenceCategory>
+        </PreferenceScreen>
 
-    <Preference
-        android:key="pref_initialize"
-        android:title="@string/pref_initialize" />
+        <Preference
+            android:key="pref_initialize"
+            android:title="@string/pref_initialize" />
 
+    </PreferenceCategory>
 </PreferenceScreen>
