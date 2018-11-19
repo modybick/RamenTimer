@@ -2,6 +2,7 @@ package com.modybick.ramentimer;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 public class ConfigActivity extends PreferenceActivity {
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PreferenceManager preferenceManager = getPreferenceManager();
         preferenceManager.setSharedPreferencesName(getString(R.string.preference_name));
@@ -26,7 +27,7 @@ public class ConfigActivity extends PreferenceActivity {
         pref_ini.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(final Preference preference) {
-                initialize_Alert(savedInstanceState);
+                initialize_Alert();
                 return true;
             }
         });
@@ -55,7 +56,7 @@ public class ConfigActivity extends PreferenceActivity {
                 }
             };
 
-    private void initialize_Alert(final Bundle savedInstanceState) {
+    private void initialize_Alert() {
         new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.pref_initialize))
                 .setMessage(getString(R.string.pref_initialize_message))
@@ -66,6 +67,7 @@ public class ConfigActivity extends PreferenceActivity {
                         SharedPreferences pref = getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
                         pref.edit().clear().apply();
                         Toast.makeText(ConfigActivity.this, getText(R.string.pref_initialized_message), Toast.LENGTH_SHORT).show();
+                        reload();
                     }
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -95,6 +97,15 @@ public class ConfigActivity extends PreferenceActivity {
         hard1ValuePref.setSummary(hard1ValuePref.getText());
         hard2ValuePref.setSummary(hard2ValuePref.getText());
         hard3ValuePref.setSummary(hard3ValuePref.getText());
+    }
+    private void reload() {
+        Intent intent = getIntent();
+        overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+
+        overridePendingTransition(0, 0);
+        startActivity(intent);
     }
 }
 
