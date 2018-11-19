@@ -22,8 +22,6 @@ public class ConfigFragment extends PreferenceFragmentCompat {
         // Required empty public constructor
     }
 
-    /* TODO 設定の初期化を実装 */
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         PreferenceManager preferenceManager = getPreferenceManager();

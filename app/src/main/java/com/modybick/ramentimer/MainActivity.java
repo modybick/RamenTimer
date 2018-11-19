@@ -25,14 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private int min_button2_value;
     private int min_button3_value;
 
-    private String hard_button1_text;
-    private String hard_button2_text;
-    private String hard_button3_text;
     private float hard_button1_value;
     private float hard_button2_value;
     private float hard_button3_value;
-
-    private String timerMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +70,9 @@ public class MainActivity extends AppCompatActivity {
         min_button1_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button1_value", "3")));
         min_button2_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button2_value", "4")));
         min_button3_value = Integer.valueOf(Objects.requireNonNull(pref.getString("pref_min_button3_value", "5")));
-        hard_button1_text = pref.getString("pref_hard_button1_text", "かため");
-        hard_button2_text = pref.getString("pref_hard_button2_text", "ふつう");
-        hard_button3_text = pref.getString("pref_hard_button3_text", "やわらかめ");
         hard_button1_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button1_value", "0.8f")));
         hard_button2_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button2_value", "1.0f")));
         hard_button3_value = Float.valueOf(Objects.requireNonNull(pref.getString("pref_hard_button3_value", "1.2f")));
-        timerMessage = pref.getString("pref_timer_message", "ラーメンが完成しました");
     }
 
     //時間選択フラグメントの表示
@@ -124,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 hardness = hard_button3_value;
                 break;
         }
-        startTimer(timerMessage, calcSeconds());
+        startTimer(getString(R.string.timer_message), calcSeconds());
     }
 
     //かたさ選択フラグメントに遷移する

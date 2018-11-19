@@ -3,6 +3,7 @@
     android:title="@string/pref_title">
 
     <!-- TODO summaryに現在値が表示されるようにする -->
+
     <PreferenceScreen android:title="@string/pref_min_title">
         <PreferenceCategory android:title="@string/pref_min_title">
             <EditTextPreference
@@ -74,13 +75,6 @@
                 android:title="@string/pref_hard_button3_value" />
         </PreferenceCategory>
     </PreferenceScreen>
-
-    <EditTextPreference
-        android:defaultValue="RamenTimer"
-        android:key="pref_timer_message"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="@string/pref_timer_message" />
 
     <Preference
         android:key="pref_initialize"
