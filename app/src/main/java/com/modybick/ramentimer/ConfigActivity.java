@@ -27,12 +27,12 @@ public class ConfigActivity extends PreferenceActivity {
         pref_ini.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(final Preference preference) {
-                initialize_Alert();
+                initializeAlert();
                 return true;
             }
         });
 
-        showSettingValue();
+        showPrefSummary();
 
     }
 
@@ -52,11 +52,11 @@ public class ConfigActivity extends PreferenceActivity {
             new SharedPreferences.OnSharedPreferenceChangeListener() {
 
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                    showSettingValue();
+                    showPrefSummary();
                 }
             };
 
-    private void initialize_Alert() {
+    private void initializeAlert() {
         new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.pref_initialize))
                 .setMessage(getString(R.string.pref_initialize_message))
@@ -75,7 +75,7 @@ public class ConfigActivity extends PreferenceActivity {
     }
 
     //設定値をsummaryに表示する
-    private void showSettingValue() {
+    private void showPrefSummary() {
         //プリファレンスのインスタンスを取得
         EditTextPreference min1ValuePref = (EditTextPreference) getPreferenceScreen().findPreference("pref_min_button1_value");
         EditTextPreference min2ValuePref = (EditTextPreference) getPreferenceScreen().findPreference("pref_min_button2_value");
