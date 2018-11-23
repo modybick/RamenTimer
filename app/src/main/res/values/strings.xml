@@ -26,5 +26,6 @@
 
     <string name="ok">はい</string>
     <string name="cancel">キャンセル</string>
+    <string name="preference">Preference</string>
 
 </resources>
