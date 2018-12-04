@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">RamenTimer</string>
+    <!-- 一般 -->
+    <string name="unit_minute">min</string>
+    <string name="preference_name">config_file</string>
+    <string name="timer_message">RamenTimer</string>
+
+    <!-- 時間選択画面の設定用 -->
+    <string name="pref_title">RamenTimer Config</string>
+    <string name="pref_min_title">Config of Time Select Buttons</string>
+    <string name="pref_min_button1_value">Minutes of Button1</string>
+    <string name="pref_min_button2_value">Minutes of Button2</string>
+    <string name="pref_min_button3_value">Minutes of Button3</string>
+
+    <string name="pref_hard_title">Config of Hardness Select Buttons</string>
+    <string name="pref_hard_button1_text">Text of Button1</string>
+    <string name="pref_hard_button2_text">Text of Button2</string>
+    <string name="pref_hard_button3_text">Text of Button3</string>
+    <string name="pref_hard_button1_value">Value of Button1</string>
+    <string name="pref_hard_button2_value">Value of Button2</string>
+    <string name="pref_hard_button3_value">Value of Button3</string>
+
+    <string name="pref_initialize">Initialize</string>
+    <string name="pref_initialize_message">Are you sure you want to initialize?</string>
+    <string name="pref_initialized_message">It has been initialized.</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="preference">Preference</string>
+
+</resources>
