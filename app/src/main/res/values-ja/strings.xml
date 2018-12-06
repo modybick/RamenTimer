@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">RamenTimer</string>
+    <!-- 一般 -->
+    <string name="unit_minute">分</string>
+    <string name="preference_name">config_file</string>
+    <string name="timer_message">RamenTimer</string>
+
+    <!-- 時間選択画面の設定用 -->
+    <string name="pref_title">RamenTimer 設定</string>
+    <string name="pref_min_title">時間選択画面の設定</string>
+    <string name="pref_min_button1_value">ボタン１の時間（分）</string>
+    <string name="pref_min_button2_value">ボタン２の時間（分）</string>
+    <string name="pref_min_button3_value">ボタン３の時間（分）</string>
+
+    <string name="pref_hard_title">かたさ選択画面の設定</string>
+    <string name="pref_hard_button1">ボタン１</string>
+    <string name="pref_hard_button2">ボタン２</string>
+    <string name="pref_hard_button3">ボタン３</string>
+    <string name="pref_hard_button1_text">ボタン１のテキスト</string>
+    <string name="pref_hard_button2_text">ボタン２のテキスト</string>
+    <string name="pref_hard_button3_text">ボタン３のテキスト</string>
+    <string name="pref_hard_button1_value">ボタン１の値（小数）</string>
+    <string name="pref_hard_button2_value">ボタン２の値（小数）</string>
+    <string name="pref_hard_button3_value">ボタン３の値（小数）</string>
+
+    <string name="pref_hard_button1_ini">かため</string>
+    <string name="pref_hard_button2_ini">ふつう</string>
+    <string name="pref_hard_button3_ini">やわらかめ</string>
+
+    <string name="pref_initialize">設定を初期化</string>
+    <string name="pref_initialize_message">設定を初期化してよろしいですか</string>
+    <string name="pref_initialized_message">設定を初期化しました</string>
+
+    <string name="ok">はい</string>
+    <string name="cancel">キャンセル</string>
+    <string name="preference">Preference</string>
+
+</resources>
