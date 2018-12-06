@@ -26,9 +26,9 @@ public class HardnessFragment extends Fragment {
 
         //設定の読み込み
         SharedPreferences pref = getContext().getSharedPreferences(getString(R.string.preference_name), MODE_PRIVATE);
-        String button1_text = pref.getString("pref_hard_button1_text", "かため");
-        String button2_text = pref.getString("pref_hard_button2_text", "ふつう");
-        String button3_text = pref.getString("pref_hard_button3_text", "やわらかめ");
+        String button1_text = pref.getString("pref_hard_button1_text", getString(R.string.pref_hard_button1_ini));
+        String button2_text = pref.getString("pref_hard_button2_text", getString(R.string.pref_hard_button2_ini));
+        String button3_text = pref.getString("pref_hard_button3_text", getString(R.string.pref_hard_button3_ini));
 
         //ボタンテキストの設定
         View v = inflater.inflate(R.layout.fragment_hardness, container, false);

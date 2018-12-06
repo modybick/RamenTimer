@@ -1,31 +1,36 @@
 <resources>
+    <!-- 英語用 -->
     <string name="app_name">RamenTimer</string>
     <!-- 一般 -->
-    <string name="unit_minute">分</string>
+    <string name="unit_minute">min</string>
     <string name="preference_name">config_file</string>
     <string name="timer_message">RamenTimer</string>
 
     <!-- 時間選択画面の設定用 -->
-    <string name="pref_title">RamenTimer 設定</string>
-    <string name="pref_min_title">時間選択画面の設定</string>
-    <string name="pref_min_button1_value">ボタン１の時間（分）</string>
-    <string name="pref_min_button2_value">ボタン２の時間（分）</string>
-    <string name="pref_min_button3_value">ボタン３の時間（分）</string>
+    <string name="pref_title">RamenTimer Settings</string>
+    <string name="pref_min_title">Setting of Time Select Buttons</string>
+    <string name="pref_min_button1_value">Minutes of Button1</string>
+    <string name="pref_min_button2_value">Minutes of Button2</string>
+    <string name="pref_min_button3_value">Minutes of Button3</string>
 
-    <string name="pref_hard_title">かたさ選択画面の設定</string>
-    <string name="pref_hard_button1_text">ボタン１のテキスト</string>
-    <string name="pref_hard_button2_text">ボタン２のテキスト</string>
-    <string name="pref_hard_button3_text">ボタン３のテキスト</string>
-    <string name="pref_hard_button1_value">ボタン１の値（小数）</string>
-    <string name="pref_hard_button2_value">ボタン２の値（小数）</string>
-    <string name="pref_hard_button3_value">ボタン３の値（小数）</string>
+    <string name="pref_hard_title">Setting of Hardness Buttons</string>
+    <string name="pref_hard_button1_text">Text of Button1</string>
+    <string name="pref_hard_button2_text">Text of Button2</string>
+    <string name="pref_hard_button3_text">Text of Button3</string>
+    <string name="pref_hard_button1_value">Value of Button1(Decimal)</string>
+    <string name="pref_hard_button2_value">Value of Button2(Decimal)</string>
+    <string name="pref_hard_button3_value">Value of Button3(Decimal)</string>
 
-    <string name="pref_initialize">設定を初期化</string>
-    <string name="pref_initialize_message">設定を初期化してよろしいですか</string>
-    <string name="pref_initialized_message">設定を初期化しました</string>
+    <string name="pref_hard_button1_ini">Hard</string>
+    <string name="pref_hard_button2_ini">Normal</string>
+    <string name="pref_hard_button3_ini">Soft</string>
 
-    <string name="ok">はい</string>
-    <string name="cancel">キャンセル</string>
+    <string name="pref_initialize">Reset All Settings</string>
+    <string name="pref_initialize_message">Do you reset the settings?</string>
+    <string name="pref_initialized_message">Reset is complete.</string>
+
+    <string name="ok">Yes</string>
+    <string name="cancel">No</string>
     <string name="preference">Preference</string>
 
 </resources>

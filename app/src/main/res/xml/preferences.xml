@@ -33,19 +33,19 @@
 
 
                 <EditTextPreference
-                    android:defaultValue="かため"
+                    android:defaultValue="@string/pref_hard_button1_ini"
                     android:key="pref_hard_button1_text"
                     android:selectAllOnFocus="true"
                     android:singleLine="true"
                     android:title="@string/pref_hard_button1_text" />
                 <EditTextPreference
-                    android:defaultValue="ふつう"
+                    android:defaultValue="@string/pref_hard_button2_ini"
                     android:key="pref_hard_button2_text"
                     android:selectAllOnFocus="true"
                     android:singleLine="true"
                     android:title="@string/pref_hard_button2_text" />
                 <EditTextPreference
-                    android:defaultValue="やわらかめ"
+                    android:defaultValue="@string/pref_hard_button3_ini"
                     android:key="pref_hard_button3_text"
                     android:selectAllOnFocus="true"
                     android:singleLine="true"
